@@ -5,6 +5,7 @@
     
     "side_panel": {
         "default_path": "sidePanel.html"
+        
     },
     "background": {"service_worker": "service-worker.js"},
     "content_scripts":[{
