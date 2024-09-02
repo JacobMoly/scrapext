@@ -1,19 +1,35 @@
 {
     "manifest_version": 3,
-    "name": "Hello Extensions",
-    "description": "Base Level Extension",
+    "name": "Scraper",
+    "description": "simple scraper",
+    "version": "1.0",
+    "host_permissions": ["<all_urls>"],
+    "permissions": [
+        "sidePanel", 
+        "scripting", 
+        "tabs"
+    ],
+    
+    "action": {
+        "default_popup": "popup.html"
+    },
     
     "side_panel": {
-        "default_path": "sidePanel.html"
-        
+        "default_path": "popup.html"  
     },
-    "background": {"service_worker": "service-worker.js"},
-    "content_scripts":[{
+    
+    "content_scripts":[
+        {
         "js":["scripts/content.js"],
         "matches": ["<all_urls>"]
-}],
-    "action": {"default_title": "Click to open panel"},
-    "version": "1.0",
-    "permissions": ["sidePanel"]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["content.js"],
+            "matches": ["<all_urls>"]
+        }
+    ]
+    
   }
   
