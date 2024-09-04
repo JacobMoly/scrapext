@@ -1,21 +1,30 @@
 body{
     font-family: 'Roboto';
 }
+#pageTitle{
+    font-weight: bold;
+    justify-self: center;
+}
 #buttonBox{
+    border: 1px solid black;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+    justify-content: center;
 }
-
-#NewScriptButton{
-    background-color: #35F197;
-    border-radius: 25px;
-    width: 60%
+#newScript{
+    width: 60%;
+    background-color: rgb(60, 251, 60);
+    border: none;
+    border-radius: 100px;
+    padding-top: 3px;
+    padding-bottom: 3px; 
+    font-weight: bold;
 }
-#SeeScriptsButton{
-    background-color: #282F2C;
-    color: white;
-    border-radius: 25px;
-    width: 60%
+#newScript:active{
+    width: 60%;
+    background-color: rgb(45, 173, 45);
+    border: none;
+    border-radius: 100px;
+    padding-top: 3px;
+    padding-bottom: 3px; 
+    font-weight: bold;
 }
