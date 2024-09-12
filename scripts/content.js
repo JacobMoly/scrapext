@@ -2,7 +2,7 @@ chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse){
         if(request.message === "start"){
             start()
-        } else if (request.message ==="start"){
+        } else if (request.message === "stop"){
             stop()
         }
 })
@@ -20,8 +20,10 @@ function start() {
             className: element.className || null,
             text: element.innerText
         }
+        tagList.push(elementInfo)
         console.log(elementInfo)
-        
+        console.log('tag list: ')
+        console.log(tagList)
     }, true)
 }
 
