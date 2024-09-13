@@ -1,6 +1,28 @@
 let scrapeButton = document.getElementById('scrapeButton')
 let scrapeStatus = false
+const addElements = () => {
+    document.addEventListener("DOMContentLoaded", () => {
+        const displayTable = document.getElementById('displayTable')
+        chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+            if (message.elements && Array.isArray(message.elements)){
+                elementsList.innerHTML = ''; // this clears previous data
 
+                // display each element info
+                message.elements.forEach((elementsInfo, index) => {
+                    const elementDiv = document.createElement('div');
+                    elementDiv.className = 'element',
+                    elementDiv.innerHTML = `
+                    <p><strong> Element ${index +1}</strong></p>
+                    <p>Tag: ${elementInfo.tagName}</p>
+                    <p>Class: ${elementInfo.className || 'N/A'}</p>
+                    <p>Text: ${elementInfo.text || 'N/A'}</p>
+                    `;
+                    elemensList.appendChild(elementDiv)
+                })
+            }
+        })
+    })
+}
 
 function startScrape(){
     console.log(`the old scrape status was: ${scrapeStatus}`)

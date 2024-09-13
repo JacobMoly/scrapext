@@ -13,17 +13,15 @@ function start() {
     document.addEventListener('click', (e) => {
         e.preventDefault()
         e.stopPropagation()
-
         const element = e.target;
         element.style.border = '2px solid red'
         elementInfo = {
+            tagName: element.tagName,
             className: element.className || null,
             text: element.innerText
         }
-        tagList.push(elementInfo)
-        console.log(elementInfo)
-        console.log('tag list: ')
-        console.log(tagList)
+        tagList.append(elementInfo)
+        chrome.runtime.sendMessage({elements: tagList})
     }, true)
 }
 
